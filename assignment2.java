@@ -22,7 +22,7 @@ class Employee {
 class FullTimeEmployee extends Employee {
 
     public FullTimeEmployee(String name, double salary) {
-        super(name, salary);
+        super(name, salary); // super calls parent constructor
     }
 
     // Calculate salary with 50% hike
