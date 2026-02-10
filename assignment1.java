@@ -82,7 +82,6 @@ public class assignment1 {
 
         System.out.println("\n--- Student Grades ---");
 
-        // simpler display loop
         for (int i = 0; i < 10; i++) {
             students[i].displayStudent();
         }
