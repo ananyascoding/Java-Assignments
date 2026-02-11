@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 // Base class
 class Employee {
-    protected String name;
-    protected double salary;
+    protected String name = "";
+    protected double salary = 0;
 
     // Constructor
     public Employee(String name, double salary) {
