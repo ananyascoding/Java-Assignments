@@ -8,16 +8,15 @@ class Student {
     private int scienceMarks;
 
     
-    // Static variables to keep track of total marks and student count. Its shared
-    // across all instances of Student class.
+    // Static variables to keep track of total marks and student count. Its shared across all instances of Student class.
     static int totalMathMarks = 0;
     static int totalScienceMarks = 0;
     static int studentCount = 0;
 
     // Constructor
     public Student(String name, int rollNo, int mathMarks, int scienceMarks) {
-        this.name = name; // 'this' keyword is used to refer to the current instance of the class. It
-                          // distinguishes between instance variables and parameters with the same name.
+        this.name = name; // 'this' keyword is used to refer to the current instance of the class.
+                          // It distinguishes between instance variables and parameters with the same name.
         this.rollNo = rollNo;
         this.mathMarks = mathMarks;
         this.scienceMarks = scienceMarks;
