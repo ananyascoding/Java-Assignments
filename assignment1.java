@@ -7,6 +7,7 @@ class Student {
     private int mathMarks;
     private int scienceMarks;
 
+    
     // Static variables to keep track of total marks and student count. Its shared
     // across all instances of Student class.
     static int totalMathMarks = 0;
