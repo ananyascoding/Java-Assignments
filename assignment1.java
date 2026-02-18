@@ -52,8 +52,7 @@ class Student {
      * 
      * @Override
      * protected void finalize() throws Throwable { // 'finalize' - destructor
-     * concept, Throwable is the parent class of
-     * // all errors and exceptions.
+     * concept, Throwable is the parent class of all errors and exceptions.
      * System.out.println("Object destroyed for student: " + name);
      * }
      */
