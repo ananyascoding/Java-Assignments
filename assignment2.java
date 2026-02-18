@@ -1,24 +1,18 @@
 import java.util.Scanner;
-
-// Base class
 class Employee {
     protected String name = "";
     protected double salary = 0;
 
-    // Constructor
     public Employee(String name, double salary) {
         this.name = name;
         this.salary = salary;
     }
 
-    // Method to display salary
     public void DisplaySalary() {
         System.out.println("Employee Name: " + name);
         System.out.println("Salary: " + salary);
     }
 }
-
-// Derived class 1
 class FullTimeEmployee extends Employee {
 
     public FullTimeEmployee(String name, double salary) {
@@ -31,7 +25,6 @@ class FullTimeEmployee extends Employee {
     }
 }
 
-// Derived class 2
 class InternEmployee extends Employee {
 
     public InternEmployee(String name, double salary) {
