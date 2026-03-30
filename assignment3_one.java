@@ -1,5 +1,6 @@
-import java.util.Scanner;
+// Compile-time polymorphism: Because: Method selection is decided at compile time based on parameters
 
+import java.util.Scanner;
 // Logic Class
 class Shapes {
     double length, breadth, radius;
@@ -78,6 +79,3 @@ public class assignment3_one {
         sc.close();
     }
 }
-
-// Compile-time polymorphism: Because: Method selection is decided at compile
-// time based on parameters
