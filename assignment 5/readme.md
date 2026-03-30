@@ -171,3 +171,17 @@ SELECT * FROM employee;
 
 index.jsp → Servlet → JDBC → MySQL → success.jsp
 
+⸻
+
+🔹 Step 15: Fix VS Code Errors
+	•	Created .vscode folder inside project
+	•	Added settings.json file
+	•	Configured it to include Tomcat servlet library and MySQL JAR
+	•	Reloaded VS Code and cleaned Java workspace
+
+⸻
+
+🔹 Purpose
+	•	To resolve IDE errors related to servlet classes
+	•	Ensures VS Code recognizes required libraries
+
