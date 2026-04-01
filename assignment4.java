@@ -54,7 +54,7 @@ public class assignment4 {
         int cid = sc.nextInt();
 
         if (cid < 1 || cid > 20) {
-            throw new InvalidDataException("CID must be between 1 and 20");
+            throw new InvalidDataException("CID must be between 1 and 20"); //new creates an object of InvalidDataException and passes the message to its constructor, which then passes it to the superclass (Exception) constructor
         }
 
         System.out.print("Enter Name: ");
@@ -102,7 +102,8 @@ public class assignment4 {
         String data = "";
         boolean found = false;
 
-        while (fr.hasNext()) {
+        while (fr.hasNext()) { // is there data to read?
+            //token wise reading: first token is int (id), second is String (name), third is double (amt)
             int id = fr.nextInt();
             String name = fr.next();
             double amt = fr.nextDouble();
