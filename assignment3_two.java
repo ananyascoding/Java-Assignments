@@ -13,7 +13,7 @@ class Hillstations {
 
 // Child Class 1
 class Manali extends Hillstations {
-    @Override
+    @Override //optional but good practice to indicate method overriding
     void famousfood() {
         System.out.println("Manali is famous for Siddu");
     }
@@ -62,11 +62,11 @@ public class assignment3_two {
         System.out.print("Enter choice: ");
         int choice = sc.nextInt();
 
-        Hillstations hs; // Parent reference
+        Hillstations hs; // Parent reference variable
 
         switch (choice) {
             case 1:
-                hs = new Manali();
+                hs = new Manali();  //actual object is of Manali class but reference is of Hillstations class 
                 break;
             case 2:
                 hs = new Mussoorie();
