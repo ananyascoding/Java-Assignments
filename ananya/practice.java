@@ -1,4 +1,6 @@
+package ananya;
 // assignment 3a - method overloading & constructor overloading
+
 /* 
 import java.util.Scanner;
 
@@ -167,7 +169,7 @@ public class assignment3_two {
     }
 }
 
-
+*/
 // assignment 4 - method overriding & inheritance
 
 import java.io.*;
@@ -179,4 +181,64 @@ class InvalidDataException extends Exception {
     }
 }
 
-*/
+public class practice {
+
+    static final Scanner sc = new Scanner(System.in);
+    static final String FILE_NAME = "customers.txt";
+
+    public static void main(String args[]) {
+        int choice;
+        do {
+            System.out.println("\n--- Banking System ---");
+            System.out.println("1. Create Account");
+            System.out.println("2. Withdraw Amount");
+            System.out.println("3. Deposit Amount");
+            System.out.println("4. Display Records");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            try {
+                switch (choice) {
+                    case 1:
+                        createAccount();
+                        break;
+                    case 2:
+                        withdrawAmount();
+                        break;
+                    case 3:
+                        depositAmount();
+                        break;
+                    case 4:
+                        displayRecords();
+                        break;
+                    case 5:
+                        System.out.println("Exiting...");
+                        break;
+                    default:
+                        System.out.println("Invalid choice!");
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+
+        } while (choice != 5);
+    }
+
+    static void createAccount() throws Exception {
+
+    }
+
+    static void withdrawAmount() throws Exception {
+
+    }
+
+    static void depositAmount() throws Exception {
+
+    }
+
+    static void displayRecords() throws Exception {
+
+    }
+
+}

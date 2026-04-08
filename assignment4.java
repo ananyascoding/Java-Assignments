@@ -67,8 +67,6 @@ public class assignment4 {
             Scanner fr = new Scanner(file);
             while (fr.hasNext()) {
                 int id = fr.nextInt();
-                String n = fr.next();
-                double a = fr.nextDouble();
 
                 if (id == cid) {
                     fr.close();
