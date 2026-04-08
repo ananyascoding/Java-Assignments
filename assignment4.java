@@ -1,5 +1,5 @@
-import java.io.*; 
-import java.util.*; 
+import java.io.*;
+import java.util.*;
 
 // User-defined Exception
 class InvalidDataException extends Exception {
@@ -212,8 +212,8 @@ public class assignment4 {
         while (fr.hasNext()) {
             System.out.println(
                     fr.nextInt() + "   " +
-                    fr.next() + "   " +
-                    fr.nextDouble());
+                            fr.next() + "   " +
+                            fr.nextDouble());
         }
 
         fr.close();
