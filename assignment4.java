@@ -10,7 +10,7 @@ class InvalidDataException extends Exception {
 
 // Main Class
 public class assignment4 {
-    static Scanner sc = new Scanner(System.in);
+    static final Scanner sc = new Scanner(System.in);
     static final String FILE_NAME = "customers.txt"; //static allows access without creating an object, final makes it a constant
 
     public static void main(String[] args) {
