@@ -1,17 +1,17 @@
-import java.io.*; // file handling
-import java.util.*; // scanner, arraylist, etc.
+import java.io.*; 
+import java.util.*; 
 
 // User-defined Exception
 class InvalidDataException extends Exception {
     InvalidDataException(String msg) {
-        super(msg); // sends message to Java’s default exception system
+        super(msg);
     }
 }
 
 // Main Class
 public class assignment4 {
     static final Scanner sc = new Scanner(System.in);
-    static final String FILE_NAME = "customers.txt"; //static allows access without creating an object, final makes it a constant
+    static final String FILE_NAME = "customers.txt";
 
     public static void main(String[] args) {
         int choice;
@@ -19,8 +19,9 @@ public class assignment4 {
             System.out.println("\n--- Banking System ---");
             System.out.println("1. Create Account");
             System.out.println("2. Withdraw Amount");
-            System.out.println("3. Display Records");
-            System.out.println("4. Exit");
+            System.out.println("3. Deposit Amount");
+            System.out.println("4. Display Records");
+            System.out.println("5. Exit");
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
 
@@ -33,9 +34,12 @@ public class assignment4 {
                         withdrawAmount();
                         break;
                     case 3:
-                        displayRecords();
+                        depositAmount();
                         break;
                     case 4:
+                        displayRecords();
+                        break;
+                    case 5:
                         System.out.println("Exiting...");
                         break;
                     default:
@@ -45,16 +49,33 @@ public class assignment4 {
                 System.out.println("Error: " + e.getMessage());
             }
 
-        } while (choice != 4);
+        } while (choice != 5);
     }
 
     // Create Account
-    static void createAccount() throws Exception { //throws Exception allows us to throw any exception from this method, which we catch in main
+    static void createAccount() throws Exception {
         System.out.print("Enter CID (1-20): ");
         int cid = sc.nextInt();
 
         if (cid < 1 || cid > 20) {
-            throw new InvalidDataException("CID must be between 1 and 20"); //new creates an object of InvalidDataException and passes the message to its constructor, which then passes it to the superclass (Exception) constructor
+            throw new InvalidDataException("CID must be between 1 and 20");
+        }
+
+        // Check duplicate CID
+        File file = new File(FILE_NAME);
+        if (file.exists()) {
+            Scanner fr = new Scanner(file);
+            while (fr.hasNext()) {
+                int id = fr.nextInt();
+                String n = fr.next();
+                double a = fr.nextDouble();
+
+                if (id == cid) {
+                    fr.close();
+                    throw new InvalidDataException("CID already exists!");
+                }
+            }
+            fr.close();
         }
 
         System.out.print("Enter Name: ");
@@ -71,7 +92,6 @@ public class assignment4 {
             throw new InvalidDataException("Minimum balance is 1000");
         }
 
-        // Write to file
         FileWriter fw = new FileWriter(FILE_NAME, true);
         fw.write(cid + " " + name + " " + amt + "\n");
         fw.close();
@@ -94,16 +114,14 @@ public class assignment4 {
         File file = new File(FILE_NAME);
 
         if (!file.exists()) {
-            System.out.println("No records found!");
-            return;
+            throw new InvalidDataException("No records found!");
         }
 
         Scanner fr = new Scanner(file);
         String data = "";
         boolean found = false;
 
-        while (fr.hasNext()) { // is there data to read?
-            //token wise reading: first token is int (id), second is String (name), third is double (amt)
+        while (fr.hasNext()) {
             int id = fr.nextInt();
             String name = fr.next();
             double amt = fr.nextDouble();
@@ -128,7 +146,52 @@ public class assignment4 {
             throw new InvalidDataException("Customer not found");
         }
 
-        // Rewrite file
+        FileWriter fw = new FileWriter(FILE_NAME);
+        fw.write(data);
+        fw.close();
+    }
+
+    // Deposit Amount
+    static void depositAmount() throws Exception {
+        System.out.print("Enter CID: ");
+        int cid = sc.nextInt();
+
+        System.out.print("Enter deposit amount: ");
+        double damt = sc.nextDouble();
+
+        if (damt <= 0) {
+            throw new InvalidDataException("Amount must be positive");
+        }
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+            throw new InvalidDataException("No records found!");
+        }
+
+        Scanner fr = new Scanner(file);
+        String data = "";
+        boolean found = false;
+
+        while (fr.hasNext()) {
+            int id = fr.nextInt();
+            String name = fr.next();
+            double amt = fr.nextDouble();
+
+            if (id == cid) {
+                found = true;
+                amt = amt + damt;
+                System.out.println("Deposit successful! New Balance: " + amt);
+            }
+
+            data += id + " " + name + " " + amt + "\n";
+        }
+        fr.close();
+
+        if (!found) {
+            throw new InvalidDataException("Customer not found");
+        }
+
         FileWriter fw = new FileWriter(FILE_NAME);
         fw.write(data);
         fw.close();
@@ -149,8 +212,8 @@ public class assignment4 {
         while (fr.hasNext()) {
             System.out.println(
                     fr.nextInt() + "   " +
-                            fr.next() + "   " +
-                            fr.nextDouble());
+                    fr.next() + "   " +
+                    fr.nextDouble());
         }
 
         fr.close();
