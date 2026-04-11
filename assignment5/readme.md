@@ -28,3 +28,33 @@
    Operating System: Platform Independent, ZIP Archive
    look for mysql-connector-j-8.0.xx.jar
    Put it in lib
+
+
+6. make a folder names EmployeeApp in WebApps in TomCat
+
+EmployeeApp/
+ ├── index.jsp
+ └── WEB-INF/
+      ├── web.xml
+      ├── classes/
+      │    └── AddEmployeeServlet.class
+      └── lib/
+           └── mysql-connector-j-xxx.jar
+
+
+index.jsp        - form for user input  
+web.xml          - servlet configuration  
+classes/         - compiled servlet (.class file)  
+lib/             - MySQL JDBC driver  
+
+7. Run addemployeeservlet
+
+javac -cp ".:/Users/ananya/apache-tomcat-9.0.117/lib/servlet-api.jar" AddEmployeeServlet.java
+ls
+
+- move this into tomcat's WEB_INF classes folder
+
+
+
+
+
