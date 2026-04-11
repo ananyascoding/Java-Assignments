@@ -7,7 +7,7 @@
 
   <servlet-mapping>
     <servlet-name>AddEmployee</servlet-name>
-    <url-pattern>/addEmployee</url-pattern>
+    <url-pattern>/addEmployee</url-pattern> 
   </servlet-mapping>
 
 </web-app>

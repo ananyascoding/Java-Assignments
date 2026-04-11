@@ -54,7 +54,55 @@ ls
 
 - move this into tomcat's WEB_INF classes folder
 
+javac  → Java compiler (converts .java to .class)
+-cp    → classpath (tells Java where required libraries are)
+.      → current directory (where the .java file is)
+:      → separator (used in Mac/Linux to separate paths)
+/Users/.../servlet-api.jar → servlet library from Tomcat (needed for javax.servlet)
+AddEmployeeServlet.java → source file to compile
+Result → creates AddEmployeeServlet.class
+
+ls → lists files in the folder to confirm .class file is created
+
+8. SQL 
+
+mysql> create database company;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use company;
+Database changed
+mysql> CREATE TABLE employee (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(50),
+    ->     email VARCHAR(50),
+    ->     salary DOUBLE
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_company |
++-------------------+
+| employee          |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+-------------+--------+
+| id | name   | email       | salary |
++----+--------+-------------+--------+
+|  1 | ananya | a@gmail.com |   1000 |
++----+--------+-------------+--------+
+1 row in set (0.01 sec)
 
 
+9. Terminal
+
+cd /Users/ananya/apache-tomcat-9.0.117/bin
+./shutdown.sh
+./startup.sh
+
+http://localhost:8080/EmployeeApp/addEmployee
 
 
+addEmplyee comes from web.xml file
